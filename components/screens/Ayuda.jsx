@@ -39,6 +39,7 @@ const Ayuda = () => {
             placeholder='¿Cómo te podemos ayudar?'
             style={styles.input}
             value={dataMensaje}
+            placeholderTextColor={'#000'}
             onChangeText={setDataMensaje}
           />
           <TouchableOpacity style={styles.button} onPress={consulta}>
@@ -65,7 +66,8 @@ const styles = StyleSheet.create({
     padding: 7,
     borderRadius: 5,
     borderColor:'#000',
-    borderWidth:1
+    borderWidth:1,
+    color:"#000"
   },
   button: {
     backgroundColor: '#007BFF',
@@ -80,14 +82,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   respuestaContainer: {
-    backgroundColor: '#9FE2FF',
+    backgroundColor: '#CCEFFF',
     padding: 10,
     borderRadius: 5,
-    marginBottom:20
+    marginBottom:20,
   },
   respuestaText: {
     fontSize: 16,
-    marginBottom:20
+    marginBottom:20,
+    color:"#000"
+
   },
 });
 

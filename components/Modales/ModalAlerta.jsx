@@ -1,9 +1,19 @@
 import { View, Text, Modal, TouchableOpacity ,Image} from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ModalAlerta = ({visible,onClose,}) => {
     const navigation = useNavigation();
+    const clearAll = async () => {
+        try {
+          await AsyncStorage.clear();
+          navigation.navigate('login')
+          console.log('Todos los datos de AsyncStorage han sido eliminados.');
+        } catch (error) {
+          console.error('Error al eliminar todos los datos', error);
+        }
+      };
   return (
     <Modal
             animationType="slide"
@@ -73,7 +83,7 @@ const ModalAlerta = ({visible,onClose,}) => {
                                     </TouchableOpacity>
                                 </View>
                                 <View style={{ justifyContent: 'flex-end', alignItems: 'flex-start', margin:30, marginLeft:120 }}>
-                                    <TouchableOpacity onPress={()=>navigation.navigate('login')}>
+                                    <TouchableOpacity onPress={()=>clearAll()}>
                                     <Text style={{ textAlign: 'left',fontSize:20, color:'#CC0000' }}>SI</Text>
                                     </TouchableOpacity>
                                 </View>
